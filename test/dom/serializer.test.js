@@ -237,7 +237,9 @@ describe('XML Serializer', () => {
 			const attr = doc.createAttributeNS('uri:a', 'a');
 			attr.value = 'value';
 			root.setAttributeNode(attr);
-			expect(new XMLSerializer({ inferAttributePrefixes: true }).serializeToString(root)).toBe('<foo xmlns:a="uri:a" a:a="value"/>');
+			expect(new XMLSerializer({ inferAttributePrefixes: true }).serializeToString(root)).toBe(
+				'<foo xmlns:a="uri:a" a:a="value"/>'
+			);
 		});
 
 		test('should invent novel unused prefix as needed for unprefixed namespaced attributes', () => {
